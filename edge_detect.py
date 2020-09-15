@@ -27,7 +27,7 @@ def cut(img, k1, b1, k2, b2):
     return np.array(down)
 if __name__ == '__main__':
     image_name = '404'
-    image1 = cv2.imread("data/390/test/" + image_name +".jpeg",0)
+    image1 = cv2.imread("data/" + image_name +".jpeg",0)
     image = equalizeHist(image1)
     # image = zeros_like(image1)
 
@@ -61,8 +61,8 @@ if __name__ == '__main__':
             # draw edges
             cv2.line(result, pt1, pt2, (255),4)
 
-    cv2.imwrite("./data/390/test/edge_detect/hough_edges.png",edges)
-    cv2.imwrite("./data/390/test/edge_detect/hough_result.png",result)
+    cv2.imwrite("./data/hough_edges.png",edges)
+    cv2.imwrite("./data/hough_result.png",result)
 
     img = image1
     k = [i[2] for i in points]
@@ -102,6 +102,6 @@ if __name__ == '__main__':
     lower_bound = int(min(max(b2_left,b2_right),h))
     cut = res[upper_bound:lower_bound,:]
 
-    cv2.imwrite('./data/390/test/res_'+str(offset)+image_name+'.jpg', res)
-    cv2.imwrite('./data/390/test/cut_'+str(offset)+image_name+'.jpg', cut)
+    cv2.imwrite('./data/res_offset'+str(offset)+"_"+image_name+'.jpg', res)
+    cv2.imwrite('./data/cut_offset'+str(offset)+"_"+image_name+'.jpg', cut)
 
